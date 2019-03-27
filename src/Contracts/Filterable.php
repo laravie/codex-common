@@ -26,4 +26,22 @@ interface Filterable
      * @return \Laravie\Codex\Contracts\Sanitizer|null
      */
     public function getFilterable(): ?Sanitizer;
+
+    /**
+     * Filter request content.
+     *
+     * @param  array|mixed  $content
+     *
+     * @return mixed
+     */
+    final public function filterRequest($content);
+
+    /**
+     * Filter response content.
+     *
+     * @param  array|mixed  $content
+     *
+     * @return mixed
+     */
+    public function filterResponse($content);
 }
