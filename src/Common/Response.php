@@ -78,7 +78,11 @@ class Response implements ResponseContract
     {
         $content = $this->getContent();
 
-        return \is_array($content) ? $content : [];
+        if (\is_array($content)) {
+            return $this instanceof Filterable ? $this->filterResponse($content) : $content;
+        }
+
+        return [];
     }
 
     /**
