@@ -6,7 +6,7 @@ use Http\Discovery\HttpClientDiscovery;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Discovery\MessageFactoryDiscovery;
 
-final class Discovery
+class Discovery
 {
     /**
      * Cache discovered HTTP Client.
