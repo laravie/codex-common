@@ -34,7 +34,7 @@ interface Filterable
      *
      * @return mixed
      */
-    final public function filterRequest($content);
+    public function filterRequest($content);
 
     /**
      * Filter response content.
