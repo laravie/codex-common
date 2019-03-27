@@ -8,7 +8,7 @@ use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\ArraySubset;
 
 /**
- * @internal This class is not meant to be used or overwritten outside the framework itself.
+ * @internal this class is not meant to be used or overwritten outside the framework itself
  */
 abstract class Assert extends PHPUnit
 {
@@ -21,9 +21,10 @@ abstract class Assert extends PHPUnit
      * @param  array|\ArrayAccess  $array
      * @param  bool  $checkForObjectIdentity
      * @param  string  $message
+     *
      * @return void
      *
-     * @link https://github.com/sebastianbergmann/phpunit/issues/3494
+     * @see https://github.com/sebastianbergmann/phpunit/issues/3494
      */
     public static function assertArraySubset($subset, $array, bool $checkForObjectIdentity = false, string $message = ''): void
     {
