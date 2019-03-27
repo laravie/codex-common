@@ -4,6 +4,7 @@ namespace Laravie\Codex\Common;
 
 use BadMethodCallException;
 use Psr\Http\Message\StreamInterface;
+use Laravie\Codex\Contracts\Filterable;
 use Psr\Http\Message\ResponseInterface;
 use Laravie\Codex\Exceptions\HttpException;
 use Laravie\Codex\Exceptions\NotFoundException;
