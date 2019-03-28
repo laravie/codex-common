@@ -9,9 +9,8 @@ use Psr\Http\Message\ResponseInterface;
 use Laravie\Codex\Exceptions\HttpException;
 use Laravie\Codex\Exceptions\NotFoundException;
 use Laravie\Codex\Exceptions\UnauthorizedException;
-use Laravie\Codex\Contracts\Response as ResponseContract;
 
-class Response implements ResponseContract
+class Response implements \Laravie\Codex\Contracts\Response
 {
     /**
      * The original response.

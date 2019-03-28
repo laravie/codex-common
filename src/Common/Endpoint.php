@@ -5,9 +5,8 @@ namespace Laravie\Codex\Common;
 use GuzzleHttp\Psr7\Uri;
 use BadMethodCallException;
 use Psr\Http\Message\UriInterface;
-use Laravie\Codex\Contracts\Endpoint as EndpointContract;
 
-class Endpoint implements EndpointContract
+class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 {
     /**
      * Base URL.
