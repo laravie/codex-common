@@ -47,6 +47,19 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
+    public function it_can_build_a_basic_response_with_null_response()
+    {
+        $api = m::mock(ResponseInterface::class);
+
+        $api->shouldReceive('getBody')->twice()->andReturnNull();
+
+        $stub = new Response($api);
+
+        $this->assertSame([], $stub->toArray());
+        $this->assertNull($stub->getBody());
+    }
+
+    /** @test */
     public function it_can_return_status_code()
     {
         $api = m::mock(ResponseInterface::class);
