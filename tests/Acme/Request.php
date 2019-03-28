@@ -8,22 +8,8 @@ use Psr\Http\Message\ResponseInterface;
 use Laravie\Codex\Contracts\Client as ClientContract;
 use Laravie\Codex\Contracts\Response as ResponseContract;
 
-class Request implements \Laravie\Codex\Contracts\Request
+class Request extends \Laravie\Codex\Common\Request
 {
-    /**
-     * Set Codex Client.
-     *
-     * @param  \Laravie\Codex\Contracts\Client  $client
-     *
-     * @return $this
-     */
-    public function setClient(ClientContract $client)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
     /**
      * Send Webhook request.
      *
