@@ -4,6 +4,7 @@ namespace Laravie\Codex\Common;
 
 use Psr\Http\Message\ResponseInterface;
 use Laravie\Codex\Contracts\Client as ClientContract;
+use Laravie\Codex\Contracts\Endpoint as EndpointContract;
 use Laravie\Codex\Contracts\Response as ResponseContract;
 
 abstract class Request implements \Laravie\Codex\Contracts\Request
@@ -14,6 +15,20 @@ abstract class Request implements \Laravie\Codex\Contracts\Request
      * @var \Laravie\Codex\Contracts\Client
      */
     protected $client;
+
+    /**
+     * Create Endpoint instance.
+     *
+     * @param  string $uri
+     * @param  string|array  $path
+     * @param  array  $query
+     *
+     * @return \Laravie\Codex\Contracts\Endpoint
+     */
+    public static function to(string $uri, $path = [], array $query = []): EndpointContract
+    {
+        return new Endpoint($uri, $path, $query);
+    }
 
     /**
      * Set Codex Client.

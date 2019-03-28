@@ -5,7 +5,6 @@ namespace Laravie\Codex\Tests\Acme;
 use Laravie\Codex\Common\Endpoint;
 use Laravie\Codex\Common\Response;
 use Psr\Http\Message\ResponseInterface;
-use Laravie\Codex\Contracts\Client as ClientContract;
 use Laravie\Codex\Contracts\Response as ResponseContract;
 
 class Request extends \Laravie\Codex\Common\Request
