@@ -240,6 +240,21 @@ class Faker
     }
 
     /**
+     * Response should have reason phrase as.
+     *
+     * @param  string  $contentType
+     *
+     * @return $this
+     */
+    public function expectContentTypeIs(string $contentType)
+    {
+        $this->message->shouldReceive('hasHeader')->with($contentType)->andReturn(true);
+        $this->message->shouldReceive('getHeader')->andReturn($contentType);
+
+        return $this;
+    }
+
+    /**
      * Get HTTP mock.
      *
      * @return \Http\Client\Common\HttpMethodsClient
