@@ -249,7 +249,7 @@ class Faker
     public function expectContentTypeIs(string $contentType)
     {
         $this->message->shouldReceive('hasHeader')->with($contentType)->andReturn(true);
-        $this->message->shouldReceive('getHeader')->andReturn($contentType);
+        $this->message->shouldReceive('getHeader')->andReturn([$contentType]);
 
         return $this;
     }
