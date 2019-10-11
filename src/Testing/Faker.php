@@ -263,7 +263,7 @@ class Faker
                 continue;
             }
 
-            $this->expectedResponseHeaders[$headerKey][] = $headerValue;
+            $this->expectedResponseHeaders[$headerKey][] = "{$headerValue}";
         }
 
         $this->message->shouldReceive('hasHeader')
