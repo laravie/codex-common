@@ -228,9 +228,7 @@ class Faker
         $this->message->shouldReceive('getStatusCode')->andReturn($code)
             ->shouldReceive('getBody')->andReturn($body);
 
-        if (! empty($headers)) {
-            $this->expectResponseHeaders($headers);
-        }
+        $this->expectResponseHeaders($headers);
 
         return $this;
     }
