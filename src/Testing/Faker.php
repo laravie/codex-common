@@ -229,6 +229,22 @@ class Faker
     }
 
     /**
+     * Request should response with.
+     *
+     * @param  int  $code
+     * @param  string  $body
+     * @param  array  $headers
+     *
+     * @return $this
+     */
+    public function shouldResponseWithJson(int $code = 200, string $body = '', array $headers = [])
+    {
+        $headers['Content-Type'] = 'application/json';
+
+        return $this->shouldResponseWith($code, $body, $headers);
+    }
+
+    /**
      * Response should have reason phrase as.
      *
      * @param  array  $headers
