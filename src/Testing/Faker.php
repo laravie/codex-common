@@ -266,15 +266,26 @@ class Faker
             }
 
             $this->expectedRequestHeaders[$headerKey][] = $headerValue;
-
-            $this->message->shouldReceive('getHeader')
-                ->with($headerKey)
-                ->andReturn($this->expectedRequestHeaders[$headerKey]);
         }
 
-        $this->message->shouldReceive('hasHeader')->andReturnUsing(function ($key) use ($headerKeys) {
-            return \array_key_exists($key, $this->expectedRequestHeaders);
-        });
+        $this->message->shouldReceive('hasHeader')
+            ->andReturnUsing(function ($key) use ($headerKeys) {
+                return \array_key_exists($key, $this->expectedRequestHeaders);
+            });
+
+        $this->message->shouldReceive('getHeader')
+            ->andReturnUsing(function ($key) use ($headerKeys) {
+                return \array_key_exists($key, $this->expectedRequestHeaders)
+                    ? $this->expectedRequestHeaders[$key]
+                    : [];
+            });
+
+        $this->message->shouldReceive('getHeaderLine')
+            ->andReturnUsing(function ($key) use ($headerKeys) {
+                return \array_key_exists($key, $this->expectedRequestHeaders)
+                    ? \implode(', ', $this->expectedRequestHeaders[$key])
+                    : '';
+            });
 
         return $this;
     }
