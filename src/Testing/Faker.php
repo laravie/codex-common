@@ -209,16 +209,34 @@ class Faker
      *
      * @param  int  $code
      * @param  string  $body
+     * @param  array  $headers
      *
      * @return $this
      */
-    public function shouldResponseWith(int $code = 200, string $body = '')
+    public function shouldResponseWith(int $code = 200, string $body = '', array $headers = [])
     {
         $this->expectedStatusCode = $code;
         $this->expectedBody = $body;
 
         $this->message->shouldReceive('getStatusCode')->andReturn($code)
             ->shouldReceive('getBody')->andReturn($body);
+
+        $headerKeys = [];
+
+        foreach ($headers as $headerKey => $headerValue) {
+            if (! \is_string($headerKey)) {
+                continue;
+            }
+
+            \array_push($headerKeys, $headerKey);
+
+            $this->message->shouldReceive('getHeader')->with($headerKey)->andReturn([$headerValue]);
+        }
+
+        $this->message->shouldReceive('hasHeader')->andReturnUsing(function ($key) use ($headerKeys) {
+            return \in_array($key, $headerKeys);
+        });
+
 
         return $this;
     }
