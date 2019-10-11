@@ -221,6 +221,22 @@ class Faker
         $this->message->shouldReceive('getStatusCode')->andReturn($code)
             ->shouldReceive('getBody')->andReturn($body);
 
+        if (! empty($headers)) {
+            $this->expectHeaders($headers);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Response should have reason phrase as.
+     *
+     * @param  array  $headers
+     *
+     * @return $this
+     */
+    public function expectHeaders(array $headers)
+    {
         $headerKeys = [];
 
         foreach ($headers as $headerKey => $headerValue) {
@@ -236,7 +252,6 @@ class Faker
         $this->message->shouldReceive('hasHeader')->andReturnUsing(function ($key) use ($headerKeys) {
             return \in_array($key, $headerKeys);
         });
-
 
         return $this;
     }
