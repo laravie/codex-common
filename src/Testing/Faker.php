@@ -46,35 +46,42 @@ class Faker
      *
      * @var string
      */
-    protected $expectedEndpoint;
+    protected $expectedRequestEndpoint;
 
     /**
-     * Expected HTTP status code.
+     * Expected HTTP Request headers.
      *
      * @var array
      */
-    protected $expectedHeaders = [];
+    protected $expectedRequestHeaders = [];
 
     /**
-     * Expected HTTP status code.
+     * Expected HTTP Response status code.
      *
      * @var int|null
      */
-    protected $expectedStatusCode;
+    protected $expectedResponseStatusCode;
 
     /**
-     * Expected Reason Phrase.
+     * Expected HTTP Response reason phrase.
      *
      * @var string|null
      */
-    protected $expectedReasonPhrase;
+    protected $expectedResponseReasonPhrase;
 
     /**
-     * Expected HTTP body.
+     * Expected HTTP Response body.
      *
      * @var string|null
      */
-    protected $expectedBody;
+    protected $expectedResponseBody;
+
+    /**
+     * Expected HTTP Response headers.
+     *
+     * @var array
+     */
+    protected $expectedResponseHeaders = [];
 
     /**
      * Construct a fake request.
@@ -109,7 +116,7 @@ class Faker
      */
     public function expectEndpointIs(string $endpoint)
     {
-        $this->expectedEndpoint = $endpoint;
+        $this->expectedRequestEndpoint = $endpoint;
 
         return $this;
     }
@@ -134,10 +141,10 @@ class Faker
         $this->request->shouldReceive('createRequest')
             ->with($method, m::type(Uri::class), $headers, $body)
             ->andReturnUsing(function ($m, $u, $h, $b) use ($request) {
-                Assert::assertSame((string) $u, $this->expectedEndpoint);
+                Assert::assertSame((string) $u, $this->expectedRequestEndpoint);
 
-                if (! empty($this->expectedHeaders)) {
-                    Assert::assertArraySubset($this->expectedHeaders, $h);
+                if (! empty($this->expectedRequestHeaders)) {
+                    Assert::assertArraySubset($this->expectedRequestHeaders, $h);
                 }
 
                 return $request;
@@ -175,7 +182,7 @@ class Faker
     {
         if (\is_array($headers)) {
             $headers['Content-Type'] = 'application/json';
-            $this->expectedHeaders = $headers;
+            $this->expectedRequestHeaders = $headers;
         }
 
         if (\is_array($body)) {
@@ -196,7 +203,7 @@ class Faker
     public function stream(string $method, $headers = [])
     {
         if (\is_array($headers)) {
-            $this->expectedHeaders = $headers;
+            $this->expectedRequestHeaders = $headers;
         }
 
         $body = m::type(StreamInterface::class);
@@ -215,8 +222,8 @@ class Faker
      */
     public function shouldResponseWith(int $code = 200, string $body = '', array $headers = [])
     {
-        $this->expectedStatusCode = $code;
-        $this->expectedBody = $body;
+        $this->expectedResponseStatusCode = $code;
+        $this->expectedResponseBody = $body;
 
         $this->message->shouldReceive('getStatusCode')->andReturn($code)
             ->shouldReceive('getBody')->andReturn($body);
@@ -253,20 +260,20 @@ class Faker
      */
     public function expectResponseHeaders(array $headers)
     {
-        $headerKeys = [];
-
         foreach ($headers as $headerKey => $headerValue) {
             if (! \is_string($headerKey)) {
                 continue;
             }
 
-            \array_push($headerKeys, $headerKey);
+            $this->expectedRequestHeaders[$headerKey][] = $headerValue;
 
-            $this->message->shouldReceive('getHeader')->with($headerKey)->andReturn([$headerValue]);
+            $this->message->shouldReceive('getHeader')
+                ->with($headerKey)
+                ->andReturn($this->expectedRequestHeaders[$headerKey]);
         }
 
         $this->message->shouldReceive('hasHeader')->andReturnUsing(function ($key) use ($headerKeys) {
-            return \in_array($key, $headerKeys);
+            return \array_key_exists($key, $this->expectedRequestHeaders);
         });
 
         return $this;
@@ -281,7 +288,7 @@ class Faker
      */
     public function expectReasonPhraseIs(string $reason)
     {
-        $this->expectedReasonPhrase = $reason;
+        $this->expectedResponseReasonPhrase = $reason;
 
         $this->message->shouldReceive('getReasonPhrase')->andReturn($reason);
 
