@@ -222,7 +222,7 @@ class Faker
             ->shouldReceive('getBody')->andReturn($body);
 
         if (! empty($headers)) {
-            $this->expectHeaders($headers);
+            $this->expectResponseHeaders($headers);
         }
 
         return $this;
@@ -251,7 +251,7 @@ class Faker
      *
      * @return $this
      */
-    public function expectHeaders(array $headers)
+    public function expectResponseHeaders(array $headers)
     {
         $headerKeys = [];
 
