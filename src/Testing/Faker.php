@@ -263,7 +263,13 @@ class Faker
                 continue;
             }
 
-            $this->expectedResponseHeaders[$headerKey][] = "{$headerValue}";
+            if (\is_array($headerValue)) {
+                $this->expectedResponseHeaders[$headerKey] = \array_merge(
+                    $this->expectedResponseHeaders[$headerKey] ?? [], $headerValue
+                );
+            } else {
+                $this->expectedResponseHeaders[$headerKey][] = "{$headerValue}";
+            }
         }
 
         $this->message->shouldReceive('hasHeader')
