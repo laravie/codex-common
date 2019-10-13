@@ -95,8 +95,8 @@ class Response implements \Laravie\Codex\Contracts\Response
         $content = $this->message->getBody();
 
         return $content instanceof StreamInterface
-                    ? (string) $content
-                    : $content;
+            ? (string) $content
+            : $content;
     }
 
     /**

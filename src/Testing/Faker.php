@@ -206,9 +206,7 @@ class Faker
             $this->expectedRequestHeaders = $headers;
         }
 
-        $body = m::type(StreamInterface::class);
-
-        return $this->call($method, m::type('Array'), $body);
+        return $this->call($method, m::type('Array'), m::type(StreamInterface::class));
     }
 
     /**

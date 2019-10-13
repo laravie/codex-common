@@ -34,8 +34,8 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
         $paths = \is_null($paths) || $paths === '/' ? [] : $paths;
 
         $this->uri = $uri instanceof UriInterface
-                        ? $uri
-                        : $this->createUri($uri, (array) $paths);
+            ? $uri
+            : $this->createUri($uri, (array) $paths);
 
         $this->createQueryFromUri($this->uri);
         $this->addQuery($query);
@@ -69,7 +69,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      */
     final protected function createQueryFromUri(UriInterface $uri): void
     {
-        $this->createQuery(trim($uri->getQuery(), '/'));
+        $this->createQuery(\trim($uri->getQuery(), '/'));
     }
 
     /**
@@ -123,8 +123,8 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     public function getUri(): ?string
     {
         return ! empty($this->uri->getHost())
-                    ? $this->uri->getScheme().'://'.$this->uri->getHost()
-                    : null;
+            ? $this->uri->getScheme().'://'.$this->uri->getHost()
+            : null;
     }
 
     /**

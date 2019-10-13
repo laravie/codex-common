@@ -23,7 +23,7 @@ class Discovery
     public static function client(): HttpMethodsClient
     {
         return static::$discoveredClient
-                    ?? static::$discoveredClient = static::make();
+            ?? static::$discoveredClient = static::make();
     }
 
     /**
