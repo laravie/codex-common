@@ -51,12 +51,12 @@ class ResponseTest extends TestCase
     {
         $api = m::mock(ResponseInterface::class);
 
-        $api->shouldReceive('getBody')->twice()->andReturnNull();
+        $api->shouldReceive('getBody')->twice()->andReturn('null');
 
         $stub = new Response($api);
 
         $this->assertSame([], $stub->toArray());
-        $this->assertNull($stub->getBody());
+        $this->assertSame('null', $stub->getBody());
     }
 
     /** @test */
