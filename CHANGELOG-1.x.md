@@ -2,6 +2,14 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
+## 1.2.1
+
+Released: 2020-01-20
+
+### Changes
+
+* Trivial refactors.
+
 ## 1.2.0
 
 Released: 2019-10-11
