@@ -2,6 +2,15 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
+## 1.3.0
+
+Released: 2020-02-03
+
+### Changes 
+
+* Bump minimum PHP to 7.2+.
+* Add support for PHPUnit 9.
+
 ## 1.2.1
 
 Released: 2020-01-20
