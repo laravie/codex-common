@@ -10,13 +10,19 @@ env:
   global:
     - coverage=no
   matrix:
-    - setup=basic
-    - setup=lowest
-    - setup=stable
+    - setup=basic phpunit=7.5
+    - setup=basic phpunit=8.4
+    - setup=stable phpunit=7.5
+    - setup=stable phpunit=8.4
+    - setup=lowest phpunit=7.5
+    - setup=lowest phpunit=8.4
 
-before_script:
+before_install:
   - travis_retry composer self-update
   - composer config discard-changes true
+
+before_script:
+  - composer require "phpunit/phpunit=${phpunit}" --prefer-dist --no-interaction --no-suggest
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --prefer-dist --no-interaction --no-suggest; fi
   - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-stable; fi
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-lowest --prefer-stable; fi
@@ -31,12 +37,20 @@ after_script:
 
 matrix:
   include:
+    - php: 7.3
+      env: setup=basic phpunit=9.0
+    - php: 7.3
+      env: setup=stable phpunit=9.0
     - php: 7.4
-      env: setup=basic
+      env: setup=basic phpunit=8.4
     - php: 7.4
-      env: setup=stable
+      env: setup=basic phpunit=9.0
+    - php: 7.4
+      env: setup=stable phpunit=8.4
+    - php: 7.4
+      env: setup=stable phpunit=9.0
     - php: 7.1
-      env: setup=coveralls coverage=yes
+      env: setup=coveralls coverage=yes phpunit=7.5
   allow_failures:
-    - env: setup=coveralls coverage=yes
+    - env: setup=coveralls coverage=yes phpunit=7.5
   fast_finish: true
