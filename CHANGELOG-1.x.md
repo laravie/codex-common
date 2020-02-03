@@ -11,6 +11,14 @@ Released: 2020-02-03
 * Bump minimum PHP to 7.2+.
 * Add support for PHPUnit 9.
 
+## 1.2.2
+
+Released: 2020-02-03
+
+### Changes
+
+* Add support for PHPUnit 9.
+
 ## 1.2.1
 
 Released: 2020-01-20
