@@ -106,7 +106,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function getContent()
     {
-        return \json_decode($this->getBody(), true);
+        return \json_decode($this->getBody(), true, 512, JSON_THROW_ON_ERROR);
     }
 
     /**
