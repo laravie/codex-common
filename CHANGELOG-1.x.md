@@ -2,6 +2,14 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
+## 1.4.1
+
+Released: 2020-12-28
+
+### Fixes
+
+* Fixes method declaration on `Laravie\Codex\Common\HttpClient::stream()`.
+
 ## 1.4.0
 
 Released: 2020-12-28

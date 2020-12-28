@@ -58,7 +58,7 @@ trait HttpClient
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function stream(string $method, EndpointContract $uri, array $headers = [], StreamInterface $stream): ResponseInterface
+    public function stream(string $method, EndpointContract $uri, array $headers, StreamInterface $stream): ResponseInterface
     {
         [$headers, $stream] = $this->prepareRequestPayloads($headers, $stream);
 
