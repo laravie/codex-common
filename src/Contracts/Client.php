@@ -30,5 +30,5 @@ interface Client
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function stream(string $method, Endpoint $uri, array $headers = [], StreamInterface $stream): ResponseInterface;
+    public function stream(string $method, Endpoint $uri, array $headers, StreamInterface $stream): ResponseInterface;
 }
