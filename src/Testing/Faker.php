@@ -186,7 +186,7 @@ class Faker
         }
 
         if (\is_array($body)) {
-            $body = \json_encode($body);
+            $body = json_encode($body);
         }
 
         return $this->call($method, $headers, $body);
@@ -262,7 +262,7 @@ class Faker
             }
 
             if (\is_array($headerValue)) {
-                $this->expectedResponseHeaders[$headerKey] = \array_merge(
+                $this->expectedResponseHeaders[$headerKey] = array_merge(
                     $this->expectedResponseHeaders[$headerKey] ?? [], $headerValue
                 );
             } else {
@@ -285,7 +285,7 @@ class Faker
         $this->message->shouldReceive('getHeaderLine')
             ->andReturnUsing(function ($key) {
                 return \array_key_exists($key, $this->expectedResponseHeaders)
-                    ? \implode(', ', $this->expectedResponseHeaders[$key])
+                    ? implode(', ', $this->expectedResponseHeaders[$key])
                     : '';
             });
 

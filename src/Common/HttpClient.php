@@ -2,7 +2,6 @@
 
 namespace Laravie\Codex\Common;
 
-use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -36,7 +35,7 @@ trait HttpClient
      */
     public function send(string $method, EndpointContract $uri, array $headers = [], $body = []): ResponseInterface
     {
-        $method = \strtoupper($method);
+        $method = strtoupper($method);
 
         if ($method === 'GET' && ! $body instanceof StreamInterface) {
             $uri->addQuery($body);
@@ -63,7 +62,7 @@ trait HttpClient
         [$headers, $stream] = $this->prepareRequestPayloads($headers, $stream);
 
         return $this->requestWith(
-            \strtoupper($method), $uri->get(), $headers, $stream
+            strtoupper($method), $uri->get(), $headers, $stream
         );
     }
 
@@ -85,7 +84,7 @@ trait HttpClient
 
         $response = $this->http->send($method, $uri, $headers, $body);
 
-        $this->httpRequestQueries[] = \compact('method', 'uri', 'headers', 'body', 'response');
+        $this->httpRequestQueries[] = compact('method', 'uri', 'headers', 'body', 'response');
 
         return $response;
     }

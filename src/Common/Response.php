@@ -106,7 +106,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function getContent()
     {
-        return \json_decode($this->getBody(), true);
+        return json_decode($this->getBody(), true);
     }
 
     /**
@@ -205,7 +205,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function __call(string $method, array $parameters)
     {
-        if (! \method_exists($this->message, $method)) {
+        if (! method_exists($this->message, $method)) {
             throw new BadMethodCallException("Method [{$method}] doesn't exists.");
         }
 
@@ -221,7 +221,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function __get(string $key)
     {
-        if (! \property_exists($this, $key)) {
+        if (! property_exists($this, $key)) {
             return null;
         }
 
