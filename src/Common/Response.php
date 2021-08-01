@@ -92,6 +92,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function getBody()
     {
+        /** @var string|\Psr\Http\Message\StreamInterface $content */
         $content = $this->message->getBody();
 
         return $content instanceof StreamInterface

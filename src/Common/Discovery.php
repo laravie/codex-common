@@ -11,7 +11,7 @@ class Discovery
     /**
      * Cache discovered HTTP Client.
      *
-     * @var
+     * @var \Http\Client\Common\HttpMethodsClient|null
      */
     protected static $discoveredClient;
 

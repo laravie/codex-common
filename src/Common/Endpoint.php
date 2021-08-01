@@ -6,6 +6,9 @@ use GuzzleHttp\Psr7\Uri;
 use BadMethodCallException;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * @mixin \Psr\Http\Message\UriInterface
+ */
 class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 {
     /**

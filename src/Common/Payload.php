@@ -28,7 +28,7 @@ class Payload
      *
      * @param  mixed  $content
      *
-     * @return static
+     * @return static|self
      */
     public static function make($content = null)
     {
