@@ -5,3 +5,8 @@ parameters:
 			count: 1
 			path: src/Common/Endpoint.php
 
+		-
+			message: "#^Method Laravie\\\\Codex\\\\Common\\\\Payload\\:\\:toJson\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/Common/Payload.php
+

@@ -14,7 +14,7 @@ class HttpException extends RuntimeException implements HttpClientException
     /**
      * Response headers.
      *
-     * @var \Laravie\Codex\Contracts\Response
+     * @var \Psr\Http\Message\ResponseInterface|\Laravie\Codex\Contracts\Response
      */
     protected $response;
 

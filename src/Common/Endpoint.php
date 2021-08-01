@@ -54,6 +54,10 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      */
     final protected function createUri(?string $url, array $paths): UriInterface
     {
+        if (is_null($url)) {
+            $url = '';
+        }
+
         $path = implode('/', $paths);
 
         if (! empty($path)) {
