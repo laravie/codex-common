@@ -5,8 +5,3 @@ parameters:
 			count: 1
 			path: src/Common/Endpoint.php
 
-		-
-			message: "#^Parameter \\#2 \\$numeric_prefix of function http_build_query expects string, null given\\.$#"
-			count: 1
-			path: src/Common/Endpoint.php
-

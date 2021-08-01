@@ -14,5 +14,6 @@ parameters:
 
   ignoreErrors:
     - '#Unsafe usage of new static#'
+    - '#Parameter \#2 \$[A-Za-z_]+ of function http_build_query expects string, null given#'
 
   treatPhpDocTypesAsCertain: false
