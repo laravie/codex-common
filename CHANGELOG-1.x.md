@@ -2,6 +2,14 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
+## 1.4.3
+
+Released: 2021-08-01
+
+### Changes
+
+* Code styling changes.
+
 ## 1.4.2
 
 Released: 2020-12-28
