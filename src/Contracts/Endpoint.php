@@ -4,6 +4,9 @@ namespace Laravie\Codex\Contracts;
 
 use Psr\Http\Message\UriInterface;
 
+/**
+ * @mixin \Psr\Http\Message\UriInterface
+ */
 interface Endpoint
 {
     /**
