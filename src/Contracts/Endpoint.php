@@ -9,8 +9,8 @@ interface Endpoint
     /**
      * Add query string.
      *
-     * @param string|array  $key
-     * @param string  $value
+     * @param string|array<string, string>  $key
+     * @param string|null  $value
      *
      * @return $this
      */

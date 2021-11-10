@@ -3,7 +3,7 @@
 namespace Laravie\Codex\Contracts;
 
 /**
- * @mixin \Psr\Http\Message\ResponseInterface
+ * @method string getReasonPhrase()
  */
 interface Response
 {

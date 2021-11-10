@@ -30,7 +30,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      *
      * @param \Psr\Http\Message\UriInterface|string  $uri
      * @param array<int, string>|string  $paths
-     * @param array<string, mixed>  $query
+     * @param array<string, string>  $query
      */
     public function __construct($uri, $paths = [], array $query = [])
     {
@@ -104,7 +104,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Add query string.
      *
-     * @param string|array  $key
+     * @param string|array<string, string>  $key
      * @param string|null  $value
      *
      * @return $this
@@ -137,7 +137,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Get path(s).
      *
-     * @return array
+     * @return array<int, string>
      */
     public function getPath(): array
     {

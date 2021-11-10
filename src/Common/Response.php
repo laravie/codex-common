@@ -123,6 +123,16 @@ class Response implements \Laravie\Codex\Contracts\Response
     }
 
     /**
+     *  Gets the response reason phrase associated with the status code.
+     *
+     * @return string
+     */
+    public function getReasonPhrase(): string
+    {
+        return $this->message->getReasonPhrase();
+    }
+
+    /**
      * Check if response is unauthorized.
      *
      * @return bool
