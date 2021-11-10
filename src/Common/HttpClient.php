@@ -28,7 +28,7 @@ trait HttpClient
      *
      * @param  string  $method
      * @param  \Laravie\Codex\Contracts\Endpoint  $uri
-     * @param  array  $headers
+     * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
      *
      * @return \Psr\Http\Message\ResponseInterface
@@ -52,7 +52,7 @@ trait HttpClient
      *
      * @param  string  $method
      * @param  \Laravie\Codex\Contracts\Endpoint  $uri
-     * @param  array  $headers
+     * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface  $stream
      *
      * @return \Psr\Http\Message\ResponseInterface
@@ -71,7 +71,7 @@ trait HttpClient
      *
      * @param  string  $method
      * @param  \Psr\Http\Message\UriInterface  $uri
-     * @param  array  $headers
+     * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
      *
      * @return \Psr\Http\Message\ResponseInterface
@@ -92,7 +92,7 @@ trait HttpClient
     /**
      * Prepare request payloads.
      *
-     * @param  array  $headers
+     * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
      *
      * @return array
@@ -107,9 +107,9 @@ trait HttpClient
     /**
      * Prepare request headers.
      *
-     * @param  array  $headers
+     * @param  array<string, mixed>  $headers
      *
-     * @return array
+     * @return  array<string, mixed>
      */
     abstract protected function prepareRequestHeaders(array $headers = []): array;
 }

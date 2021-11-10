@@ -20,8 +20,8 @@ abstract class Request implements \Laravie\Codex\Contracts\Request
      * Create Endpoint instance.
      *
      * @param  string $uri
-     * @param  string|array  $path
-     * @param  array  $query
+     * @param array<int, string>|string  $path
+     * @param  array<string, string>  $query
      *
      * @return \Laravie\Codex\Contracts\Endpoint
      */
