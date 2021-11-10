@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Comparison operation \"\\>\\=\" between int\\<0, max\\>\\|false and 0 is always true\\.$#"
-			count: 1
-			path: src/Common/Endpoint.php
-
-		-
 			message: "#^Method Laravie\\\\Codex\\\\Common\\\\Payload\\:\\:toJson\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: src/Common/Payload.php

@@ -29,8 +29,8 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      * Construct API Endpoint.
      *
      * @param \Psr\Http\Message\UriInterface|string  $uri
-     * @param array|string  $paths
-     * @param array  $query
+     * @param array<int, string>|string  $paths
+     * @param array<string, mixed>  $query
      */
     public function __construct($uri, $paths = [], array $query = [])
     {
@@ -48,7 +48,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      * Create instance of Uri.
      *
      * @param  string|null  $url
-     * @param  array  $paths
+     * @param  array<int, string>  $paths
      *
      * @return \Psr\Http\Message\UriInterface
      */
@@ -93,7 +93,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
         }
 
         foreach (explode('&', $query) as $pair) {
-            if (strpos($pair, '=') >= 0) {
+            if (strpos($pair, '=') >= 1) {
                 [$key, $value] = explode('=', $pair, 2);
 
                 $this->addQuery($key, urldecode($value));

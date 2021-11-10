@@ -79,7 +79,9 @@ class Response implements \Laravie\Codex\Contracts\Response
         $content = $this->getContent();
 
         if (\is_array($content)) {
-            return $this instanceof Filterable ? $this->filterResponse($content) : $content;
+            return $this instanceof Filterable
+                ? (array) $this->filterResponse($content)
+                : $content;
         }
 
         return [];
