@@ -10,6 +10,9 @@ use Laravie\Codex\Exceptions\HttpException;
 use Laravie\Codex\Exceptions\NotFoundException;
 use Laravie\Codex\Exceptions\UnauthorizedException;
 
+/**
+ * @mixin \Psr\Http\Message\ResponseInterface
+ */
 class Response implements \Laravie\Codex\Contracts\Response
 {
     /**
