@@ -2,6 +2,14 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
+## 1.5.0
+
+Released: 2022-01-06
+
+### Added
+
+* Add support for `guzzlehttp/psr7` v2.
+
 ## 1.4.3
 
 Released: 2021-08-01
