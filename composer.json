@@ -24,7 +24,7 @@
     },
     "require": {
         "php": "^7.2 || ^8.0",
-        "guzzlehttp/psr7": "^1.6",
+        "guzzlehttp/psr7": "^1.6 || ^2.0",
         "http-interop/http-factory-guzzle": "^1.0",
         "php-http/client-common": "^2.0",
         "php-http/client-implementation": "^1.0",
