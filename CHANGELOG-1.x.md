@@ -2,6 +2,14 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
+## 1.5.1
+
+Released: 2022-02-08
+
+### Changes
+
+* Improves docblock.
+
 ## 1.5.0
 
 Released: 2022-01-06
