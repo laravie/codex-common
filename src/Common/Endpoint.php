@@ -30,7 +30,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      *
      * @param \Psr\Http\Message\UriInterface|string  $uri
      * @param array<int, string>|string  $paths
-     * @param array<string, string>  $query
+     * @param array<string, mixed>  $query
      */
     public function __construct($uri, $paths = [], array $query = [])
     {
