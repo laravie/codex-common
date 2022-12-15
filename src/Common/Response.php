@@ -10,6 +10,9 @@ use Laravie\Codex\Exceptions\HttpException;
 use Laravie\Codex\Exceptions\NotFoundException;
 use Laravie\Codex\Exceptions\UnauthorizedException;
 
+/**
+ * @mixin \Psr\Http\Message\ResponseInterface
+ */
 class Response implements \Laravie\Codex\Contracts\Response
 {
     /**
@@ -79,7 +82,9 @@ class Response implements \Laravie\Codex\Contracts\Response
         $content = $this->getContent();
 
         if (\is_array($content)) {
-            return $this instanceof Filterable ? $this->filterResponse($content) : $content;
+            return $this instanceof Filterable
+                ? (array) $this->filterResponse($content)
+                : $content;
         }
 
         return [];
@@ -92,6 +97,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function getBody()
     {
+        /** @var string|\Psr\Http\Message\StreamInterface $content */
         $content = $this->message->getBody();
 
         return $content instanceof StreamInterface
@@ -117,6 +123,16 @@ class Response implements \Laravie\Codex\Contracts\Response
     public function getStatusCode(): int
     {
         return $this->message->getStatusCode();
+    }
+
+    /**
+     *  Gets the response reason phrase associated with the status code.
+     *
+     * @return string
+     */
+    public function getReasonPhrase(): string
+    {
+        return $this->message->getReasonPhrase();
     }
 
     /**
@@ -205,7 +221,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function __call(string $method, array $parameters)
     {
-        if (! \method_exists($this->message, $method)) {
+        if (! method_exists($this->message, $method)) {
             throw new BadMethodCallException("Method [{$method}] doesn't exists.");
         }
 
@@ -221,7 +237,7 @@ class Response implements \Laravie\Codex\Contracts\Response
      */
     public function __get(string $key)
     {
-        if (! \property_exists($this, $key)) {
+        if (! property_exists($this, $key)) {
             return null;
         }
 

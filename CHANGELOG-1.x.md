@@ -2,6 +2,38 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
+## 1.5.1
+
+Released: 2022-02-08
+
+### Changes
+
+* Improves docblock.
+
+## 1.5.0
+
+Released: 2022-01-06
+
+### Added
+
+* Add support for `guzzlehttp/psr7` v2.
+
+## 1.4.3
+
+Released: 2021-08-01
+
+### Changes
+
+* Code styling changes.
+
+## 1.4.2
+
+Released: 2020-12-28
+
+### Fixes
+
+* Fixes `Laravie\Codex\Contracts\Client::stream()` contract.
+
 ## 1.4.1
 
 Released: 2020-12-28

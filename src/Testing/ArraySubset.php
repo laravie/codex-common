@@ -3,14 +3,14 @@
 namespace Laravie\Codex\Testing;
 
 use ArrayObject;
-use PHPUnit\Framework\Constraint\Constraint;
-use PHPUnit\Runner\Version;
-use SebastianBergmann\Comparator\ComparisonFailure;
 use Traversable;
+use PHPUnit\Runner\Version;
+use PHPUnit\Framework\Constraint\Constraint;
+use SebastianBergmann\Comparator\ComparisonFailure;
 
-if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
+if (class_exists(Version::class) && (int) Version::series()[0] >= 9) {
     /**
-     * @internal This class is not meant to be used or overwritten outside the framework itself.
+     * @internal this class is not meant to be used or overwritten outside the framework itself
      */
     final class ArraySubset extends Constraint
     {
@@ -29,6 +29,7 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          *
          * @param iterable  $subset
          * @param bool  $strict
+         *
          * @return void
          */
         public function __construct(iterable $subset, bool $strict = false)
@@ -50,10 +51,11 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          * @param  mixed  $other
          * @param  string  $description
          * @param  bool  $returnResult
-         * @return bool|null
          *
          * @throws \PHPUnit\Framework\ExpectationFailedException
          * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+         *
+         * @return bool|null
          */
         public function evaluate($other, string $description = '', bool $returnResult = false): ?bool
         {
@@ -62,7 +64,7 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
             $other = $this->toArray($other);
             $this->subset = $this->toArray($this->subset);
 
-            $patched = \array_replace_recursive($other, $this->subset);
+            $patched = array_replace_recursive($other, $this->subset);
 
             if ($this->strict) {
                 $result = $other === $patched;
@@ -78,8 +80,8 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
                 $f = new ComparisonFailure(
                     $patched,
                     $other,
-                    \var_export($patched, true),
-                    \var_export($other, true)
+                    var_export($patched, true),
+                    var_export($other, true)
                 );
 
                 $this->fail($other, $description, $f);
@@ -107,9 +109,10 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          * cases. This method should return the second part of that sentence.
          *
          * @param  mixed  $other
-         * @return string
          *
          * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+         *
+         * @return string
          */
         protected function failureDescription($other): string
         {
@@ -123,6 +126,7 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          * cases. This method should return the second part of that sentence.
          *
          * @param  iterable  $other
+         *
          * @return array
          */
         private function toArray(iterable $other): array
@@ -136,16 +140,16 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
             }
 
             if ($other instanceof Traversable) {
-                return \iterator_to_array($other);
+                return iterator_to_array($other);
             }
 
             // Keep BC even if we know that array would not be the expected one
             return (array) $other;
         }
     }
-} elseif (\class_exists(Version::class) && (int) Version::series()[0] >= 8) {
+} elseif (class_exists(Version::class) && (int) Version::series()[0] >= 8) {
     /**
-     * @internal This class is not meant to be used or overwritten outside the framework itself.
+     * @internal this class is not meant to be used or overwritten outside the framework itself
      */
     final class ArraySubset extends Constraint
     {
@@ -164,6 +168,7 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          *
          * @param iterable  $subset
          * @param bool  $strict
+         *
          * @return void
          */
         public function __construct(iterable $subset, bool $strict = false)
@@ -185,10 +190,11 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          * @param  mixed  $other
          * @param  string  $description
          * @param  bool  $returnResult
-         * @return bool|null
          *
          * @throws \PHPUnit\Framework\ExpectationFailedException
          * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+         *
+         * @return bool|null
          */
         public function evaluate($other, string $description = '', bool $returnResult = false)
         {
@@ -197,7 +203,7 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
             $other = $this->toArray($other);
             $this->subset = $this->toArray($this->subset);
 
-            $patched = \array_replace_recursive($other, $this->subset);
+            $patched = array_replace_recursive($other, $this->subset);
 
             if ($this->strict) {
                 $result = $other === $patched;
@@ -213,8 +219,8 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
                 $f = new ComparisonFailure(
                     $patched,
                     $other,
-                    \var_export($patched, true),
-                    \var_export($other, true)
+                    var_export($patched, true),
+                    var_export($other, true)
                 );
 
                 $this->fail($other, $description, $f);
@@ -240,9 +246,10 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          * cases. This method should return the second part of that sentence.
          *
          * @param  mixed  $other
-         * @return string
          *
          * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+         *
+         * @return string
          */
         protected function failureDescription($other): string
         {
@@ -256,6 +263,7 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
          * cases. This method should return the second part of that sentence.
          *
          * @param  iterable  $other
+         *
          * @return array
          */
         private function toArray(iterable $other): array
@@ -269,7 +277,7 @@ if (\class_exists(Version::class) && (int) Version::series()[0] >= 9) {
             }
 
             if ($other instanceof Traversable) {
-                return \iterator_to_array($other);
+                return iterator_to_array($other);
             }
 
             // Keep BC even if we know that array would not be the expected one

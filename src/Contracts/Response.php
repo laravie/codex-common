@@ -2,6 +2,9 @@
 
 namespace Laravie\Codex\Contracts;
 
+/**
+ * @method string getReasonPhrase()
+ */
 interface Response
 {
     /**

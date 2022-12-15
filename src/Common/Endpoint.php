@@ -6,6 +6,9 @@ use GuzzleHttp\Psr7\Uri;
 use BadMethodCallException;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * @mixin \Psr\Http\Message\UriInterface
+ */
 class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 {
     /**
@@ -26,8 +29,8 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      * Construct API Endpoint.
      *
      * @param \Psr\Http\Message\UriInterface|string  $uri
-     * @param array|string  $paths
-     * @param array  $query
+     * @param array<int, string>|string  $paths
+     * @param array<string, string|null>  $query
      */
     public function __construct($uri, $paths = [], array $query = [])
     {
@@ -45,16 +48,20 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      * Create instance of Uri.
      *
      * @param  string|null  $url
-     * @param  array  $paths
+     * @param  array<int, string>  $paths
      *
      * @return \Psr\Http\Message\UriInterface
      */
     final protected function createUri(?string $url, array $paths): UriInterface
     {
-        $path = \implode('/', $paths);
+        if (is_null($url)) {
+            $url = '';
+        }
+
+        $path = implode('/', $paths);
 
         if (! empty($path)) {
-            $url = \rtrim($url, '/')."/{$path}";
+            $url = rtrim($url, '/')."/{$path}";
         }
 
         return new Uri($url);
@@ -69,7 +76,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      */
     final protected function createQueryFromUri(UriInterface $uri): void
     {
-        $this->createQuery(\trim($uri->getQuery(), '/'));
+        $this->createQuery(trim($uri->getQuery(), '/'));
     }
 
     /**
@@ -85,11 +92,11 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
             return;
         }
 
-        foreach (\explode('&', $query) as $pair) {
-            if (\strpos($pair, '=') >= 0) {
-                [$key, $value] = \explode('=', $pair, 2);
+        foreach (explode('&', $query) as $pair) {
+            if (strpos($pair, '=') >= 1) {
+                [$key, $value] = explode('=', $pair, 2);
 
-                $this->addQuery($key, \urldecode($value));
+                $this->addQuery($key, urldecode($value));
             }
         }
     }
@@ -97,7 +104,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Add query string.
      *
-     * @param string|array  $key
+     * @param string|array<string, string|null>  $key
      * @param string|null  $value
      *
      * @return $this
@@ -130,11 +137,11 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Get path(s).
      *
-     * @return array
+     * @return array<int, string>
      */
     public function getPath(): array
     {
-        return \explode('/', \trim($this->uri->getPath(), '/'));
+        return explode('/', trim($this->uri->getPath(), '/'));
     }
 
     /**
@@ -155,7 +162,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     public function get(): UriInterface
     {
         $this->withQuery(
-            \http_build_query($this->getQuery(), null, '&')
+            http_build_query($this->getQuery(), null, '&')
         );
 
         return $this->uri;
@@ -171,13 +178,13 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      */
     public function __call(string $method, array $parameters)
     {
-        if (! \method_exists($this->uri, $method)) {
+        if (! method_exists($this->uri, $method)) {
             throw new BadMethodCallException("Method [{$method}] doesn't exists.");
         }
 
         $result = $this->uri->{$method}(...$parameters);
 
-        if (\strpos($method, 'with') !== 0) {
+        if (strpos($method, 'with') !== 0) {
             return $result;
         } elseif ($result instanceof UriInterface) {
             $this->uri = $result;
