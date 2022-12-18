@@ -3,8 +3,8 @@
 namespace Laravie\Codex\Tests\Common;
 
 use GuzzleHttp\Psr7\Uri;
-use PHPUnit\Framework\TestCase;
 use Laravie\Codex\Common\Endpoint;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
 
 class EndpointTest extends TestCase
@@ -133,7 +133,6 @@ class EndpointTest extends TestCase
         $this->assertInstanceOf(Endpoint::class, $endpoint->withScheme('http'));
 
         $this->assertSame('http', $endpoint->getScheme());
-
 
         $this->assertInstanceOf(Endpoint::class, $endpoint->withUserInfo('laravie'));
 

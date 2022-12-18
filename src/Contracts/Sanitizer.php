@@ -9,7 +9,6 @@ interface Sanitizer
      *
      * @param  string|array  $group
      * @param  \Laravie\Codex\Contracts\Cast  $cast
-     *
      * @return $this
      */
     public function add($group, Cast $cast);
@@ -19,7 +18,6 @@ interface Sanitizer
      *
      * @param  array  $inputs
      * @param  array  $group
-     *
      * @return array
      */
     public function from(array $inputs, array $group = []): array;
@@ -29,7 +27,6 @@ interface Sanitizer
      *
      * @param  array  $inputs
      * @param  array  $group
-     *
      * @return array
      */
     public function to(array $inputs, array $group = []): array;

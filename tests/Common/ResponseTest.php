@@ -2,11 +2,11 @@
 
 namespace Laravie\Codex\Tests\Common;
 
+use Laravie\Codex\Common\Response;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Laravie\Codex\Common\Response;
-use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
 class ResponseTest extends TestCase
 {

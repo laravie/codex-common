@@ -2,8 +2,8 @@
 
 namespace Laravie\Codex\Common;
 
-use Http\Discovery\HttpClientDiscovery;
 use Http\Client\Common\HttpMethodsClient;
+use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 
 class Discovery
@@ -55,7 +55,6 @@ class Discovery
      * Override existing HTTP client.
      *
      * @param  \Http\Client\Common\HttpMethodsClient  $client
-     *
      * @return \Http\Client\Common\HttpMethodsClient
      */
     public static function override(HttpMethodsClient $client): HttpMethodsClient

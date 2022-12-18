@@ -2,11 +2,11 @@
 
 namespace Laravie\Codex\Tests\Exceptions;
 
+use Laravie\Codex\Contracts\Response;
+use Laravie\Codex\Exceptions\HttpException;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Laravie\Codex\Contracts\Response;
 use Psr\Http\Message\ResponseInterface;
-use Laravie\Codex\Exceptions\HttpException;
 
 class HttpExceptionTest extends TestCase
 {

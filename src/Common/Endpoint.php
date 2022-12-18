@@ -2,8 +2,8 @@
 
 namespace Laravie\Codex\Common;
 
-use GuzzleHttp\Psr7\Uri;
 use BadMethodCallException;
+use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 
 /**
@@ -28,9 +28,9 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Construct API Endpoint.
      *
-     * @param \Psr\Http\Message\UriInterface|string  $uri
-     * @param array<int, string>|string  $paths
-     * @param array<string, string|null>  $query
+     * @param  \Psr\Http\Message\UriInterface|string  $uri
+     * @param  array<int, string>|string  $paths
+     * @param  array<string, string|null>  $query
      */
     public function __construct($uri, $paths = [], array $query = [])
     {
@@ -49,7 +49,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      *
      * @param  string|null  $url
      * @param  array<int, string>  $paths
-     *
      * @return \Psr\Http\Message\UriInterface
      */
     final protected function createUri(?string $url, array $paths): UriInterface
@@ -70,8 +69,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Create from UriInterface.
      *
-     * @param \Psr\Http\Message\UriInterface  $uri
-     *
+     * @param  \Psr\Http\Message\UriInterface  $uri
      * @return void
      */
     final protected function createQueryFromUri(UriInterface $uri): void
@@ -83,7 +81,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      * Prepare query string.
      *
      * @param  string  $query
-     *
      * @return void
      */
     protected function createQuery(string $query): void
@@ -104,9 +101,8 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Add query string.
      *
-     * @param string|array<string, string|null>  $key
-     * @param string|null  $value
-     *
+     * @param  string|array<string, string|null>  $key
+     * @param  string|null  $value
      * @return $this
      */
     public function addQuery($key, string $value = null)
@@ -173,7 +169,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      *
      * @param  string  $method
      * @param  array  $parameters
-     *
      * @return mixed
      */
     public function __call(string $method, array $parameters)

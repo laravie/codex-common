@@ -15,7 +15,6 @@ interface Filterable
      * Set filterable.
      *
      * @param  \Laravie\Codex\Contracts\Sanitizer|null  $filterable
-     *
      * @return void
      */
     public function setFilterable(?Sanitizer $filterable): void;
@@ -31,7 +30,6 @@ interface Filterable
      * Filter request content.
      *
      * @param  array|mixed  $content
-     *
      * @return mixed
      */
     public function filterRequest($content);
@@ -40,7 +38,6 @@ interface Filterable
      * Filter response content.
      *
      * @param  array|mixed  $content
-     *
      * @return mixed
      */
     public function filterResponse($content);

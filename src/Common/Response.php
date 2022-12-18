@@ -3,12 +3,12 @@
 namespace Laravie\Codex\Common;
 
 use BadMethodCallException;
-use Psr\Http\Message\StreamInterface;
 use Laravie\Codex\Contracts\Filterable;
-use Psr\Http\Message\ResponseInterface;
 use Laravie\Codex\Exceptions\HttpException;
 use Laravie\Codex\Exceptions\NotFoundException;
 use Laravie\Codex\Exceptions\UnauthorizedException;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * @mixin \Psr\Http\Message\ResponseInterface
@@ -25,7 +25,7 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Construct a new response.
      *
-     * @param \Psr\Http\Message\ResponseInterface  $message
+     * @param  \Psr\Http\Message\ResponseInterface  $message
      */
     public function __construct(ResponseInterface $message)
     {
@@ -48,7 +48,6 @@ class Response implements \Laravie\Codex\Contracts\Response
      * Validate response with custom callable.
      *
      * @param  callable  $callback
-     *
      * @return $this
      */
     final public function validateWith(callable $callback): self
@@ -62,7 +61,6 @@ class Response implements \Laravie\Codex\Contracts\Response
      * Validate response with custom callable.
      *
      * @param  callable  $callback
-     *
      * @return $this
      */
     final public function then(callable $callback): self
@@ -168,9 +166,9 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Validate for unauthorized request.
      *
-     * @throws \Laravie\Codex\Exceptions\UnauthorizedException
-     *
      * @return void
+     *
+     * @throws \Laravie\Codex\Exceptions\UnauthorizedException
      */
     public function abortIfRequestUnauthorized(): void
     {
@@ -183,10 +181,9 @@ class Response implements \Laravie\Codex\Contracts\Response
      * Validate for unauthorized request.
      *
      * @param  string|null  $message
+     * @return void
      *
      * @throws \Laravie\Codex\Exceptions\HttpException
-     *
-     * @return void
      */
     public function abortIfRequestHasFailed(?string $message = null): void
     {
@@ -200,8 +197,7 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Abort if request data is not found.
      *
-     * @param  string|null $message
-     *
+     * @param  string|null  $message
      * @return void
      */
     public function abortIfRequestNotFound(?string $message = null): void
@@ -216,7 +212,6 @@ class Response implements \Laravie\Codex\Contracts\Response
      *
      * @param  string  $method
      * @param  array  $parameters
-     *
      * @return mixed
      */
     public function __call(string $method, array $parameters)
@@ -231,8 +226,7 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Get hidden property.
      *
-     * @param  string $key
-     *
+     * @param  string  $key
      * @return mixed
      */
     public function __get(string $key)

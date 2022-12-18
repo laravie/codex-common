@@ -3,11 +3,11 @@
 namespace Laravie\Codex\Exceptions;
 
 use Exception;
-use RuntimeException;
+use Http\Client\Exception as HttpClientException;
 use InvalidArgumentException;
 use Laravie\Codex\Contracts\Response;
 use Psr\Http\Message\ResponseInterface;
-use Http\Client\Exception as HttpClientException;
+use RuntimeException;
 
 class HttpException extends RuntimeException implements HttpClientException
 {
@@ -21,10 +21,10 @@ class HttpException extends RuntimeException implements HttpClientException
     /**
      * Construct a new HTTP exception.
      *
-     * @param \Psr\Http\Message\ResponseInterface|\Laravie\Codex\Contracts\Response  $response
-     * @param string  $message
-     * @param \Exception|null  $previous
-     * @param int  $code
+     * @param  \Psr\Http\Message\ResponseInterface|\Laravie\Codex\Contracts\Response  $response
+     * @param  string  $message
+     * @param  \Exception|null  $previous
+     * @param  int  $code
      */
     public function __construct(
         $response,
@@ -65,10 +65,9 @@ class HttpException extends RuntimeException implements HttpClientException
      * Set response object.
      *
      * @param  \Psr\Http\Message\ResponseInterface|\Laravie\Codex\Contracts\Response  $response
+     * @return $this
      *
      * @throws \InvalidArgumentException
-     *
-     * @return $this
      */
     final public function setResponse($response): self
     {

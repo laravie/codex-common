@@ -4,8 +4,8 @@ namespace Laravie\Codex\Tests\Acme;
 
 use Laravie\Codex\Common\Endpoint;
 use Laravie\Codex\Common\Response;
-use Psr\Http\Message\ResponseInterface;
 use Laravie\Codex\Contracts\Response as ResponseContract;
+use Psr\Http\Message\ResponseInterface;
 
 class Request extends \Laravie\Codex\Common\Request
 {
@@ -16,7 +16,6 @@ class Request extends \Laravie\Codex\Common\Request
      * @param  \Laravie\Codex\Contracts\Endpoint|string  $url
      * @param  array  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Payload|array|null  $body
-     *
      * @return \Laravie\Codex\Contracts\Response
      */
     public function send(string $method, $url, array $headers = [], $body = []): ResponseContract
@@ -30,7 +29,6 @@ class Request extends \Laravie\Codex\Common\Request
      * Resolve the responder class.
      *
      * @param  \Psr\Http\Message\ResponseInterface  $message
-     *
      * @return \Laravie\Codex\Contracts\Response
      */
     protected function responseWith(ResponseInterface $message): ResponseContract

@@ -2,8 +2,8 @@
 
 namespace Laravie\Codex\Tests\Common;
 
-use PHPUnit\Framework\TestCase;
 use Laravie\Codex\Common\Discovery;
+use PHPUnit\Framework\TestCase;
 
 class DiscoveryTest extends TestCase
 {

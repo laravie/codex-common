@@ -2,14 +2,14 @@
 
 namespace Laravie\Codex\Tests;
 
-use Mockery as m;
-use PHPUnit\Framework\TestCase;
+use Laravie\Codex\Contracts\Client as ClientContract;
+use Laravie\Codex\Contracts\Endpoint;
+use Laravie\Codex\Contracts\Request as RequestContract;
 use Laravie\Codex\Testing\Faker;
 use Laravie\Codex\Tests\Acme\Client;
-use Laravie\Codex\Contracts\Endpoint;
 use Laravie\Codex\Tests\Acme\Request;
-use Laravie\Codex\Contracts\Client as ClientContract;
-use Laravie\Codex\Contracts\Request as RequestContract;
+use Mockery as m;
+use PHPUnit\Framework\TestCase;
 
 class RequestTest extends TestCase
 {

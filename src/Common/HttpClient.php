@@ -2,10 +2,10 @@
 
 namespace Laravie\Codex\Common;
 
-use Psr\Http\Message\UriInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\ResponseInterface;
 use Laravie\Codex\Contracts\Endpoint as EndpointContract;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\UriInterface;
 
 trait HttpClient
 {
@@ -30,7 +30,6 @@ trait HttpClient
      * @param  \Laravie\Codex\Contracts\Endpoint  $uri
      * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
-     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function send(string $method, EndpointContract $uri, array $headers = [], $body = []): ResponseInterface
@@ -54,7 +53,6 @@ trait HttpClient
      * @param  \Laravie\Codex\Contracts\Endpoint  $uri
      * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface  $stream
-     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function stream(string $method, EndpointContract $uri, array $headers, StreamInterface $stream): ResponseInterface
@@ -73,7 +71,6 @@ trait HttpClient
      * @param  \Psr\Http\Message\UriInterface  $uri
      * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
-     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     protected function requestWith(string $method, UriInterface $uri, array $headers, $body): ResponseInterface
@@ -94,7 +91,6 @@ trait HttpClient
      *
      * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
-     *
      * @return array
      */
     protected function prepareRequestPayloads(array $headers = [], $body = []): array
@@ -108,7 +104,6 @@ trait HttpClient
      * Prepare request headers.
      *
      * @param  array<string, mixed>  $headers
-     *
      * @return  array<string, mixed>
      */
     abstract protected function prepareRequestHeaders(array $headers = []): array;

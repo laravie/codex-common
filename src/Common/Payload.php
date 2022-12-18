@@ -27,7 +27,6 @@ class Payload
      * Construct a new payload using static.
      *
      * @param  mixed  $content
-     *
      * @return static|self
      */
     public static function make($content = null)
@@ -43,7 +42,6 @@ class Payload
      * Get payload content.
      *
      * @param  array  $headers
-     *
      * @return mixed
      */
     public function get(array $headers = [])
@@ -65,7 +63,6 @@ class Payload
      * Convert the content to JSON.
      *
      * @param  int  $options
-     *
      * @return string
      */
     public function toJson($options = 0): string
@@ -78,7 +75,6 @@ class Payload
      *
      * @param  string|null  $prefix
      * @param  string  $separator
-     *
      * @return string
      */
     public function toHttpQueries(?string $prefix = null, string $separator = '&'): string

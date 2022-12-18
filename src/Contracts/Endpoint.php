@@ -9,9 +9,8 @@ interface Endpoint
     /**
      * Add query string.
      *
-     * @param string|array<string, string>  $key
-     * @param string|null  $value
-     *
+     * @param  string|array<string, string>  $key
+     * @param  string|null  $value
      * @return $this
      */
     public function addQuery($key, string $value = null);

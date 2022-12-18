@@ -2,11 +2,11 @@
 
 namespace Laravie\Codex\Tests\Common;
 
-use Mockery as m;
-use PHPUnit\Framework\TestCase;
-use Laravie\Codex\Testing\Faker;
 use Laravie\Codex\Common\Endpoint;
 use Laravie\Codex\Common\HttpClient;
+use Laravie\Codex\Testing\Faker;
+use Mockery as m;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\StreamInterface;
 
 class HttpClientTest extends TestCase
@@ -67,7 +67,6 @@ class HttpClientTest extends TestCase
      * Prepare request headers.
      *
      * @param  array  $headers
-     *
      * @return array
      */
     protected function prepareRequestHeaders(array $headers = []): array

@@ -8,7 +8,6 @@ interface Cast
      * Cast value from object.
      *
      * @param  object  $value
-     *
      * @return mixed
      */
     public function from($value);
@@ -17,7 +16,6 @@ interface Cast
      * Cast value to object.
      *
      * @param  mixed  $value
-     *
      * @return object|null
      */
     public function to($value);

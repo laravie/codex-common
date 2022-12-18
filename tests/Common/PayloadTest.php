@@ -2,9 +2,9 @@
 
 namespace Laravie\Codex\Tests\Common;
 
+use Laravie\Codex\Common\Payload;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Laravie\Codex\Common\Payload;
 use Psr\Http\Message\StreamInterface;
 
 class PayloadTest extends TestCase

@@ -2,8 +2,8 @@
 
 namespace Laravie\Codex\Tests\Acme;
 
-use Laravie\Codex\Common\HttpClient;
 use Http\Client\Common\HttpMethodsClient;
+use Laravie\Codex\Common\HttpClient;
 
 class Client implements \Laravie\Codex\Contracts\Client
 {
@@ -12,7 +12,7 @@ class Client implements \Laravie\Codex\Contracts\Client
     /**
      * Construct a new client.
      *
-     * @param \Http\Client\Common\HttpMethodsClient  $http
+     * @param  \Http\Client\Common\HttpMethodsClient  $http
      */
     public function __construct(HttpMethodsClient $http)
     {
@@ -23,7 +23,6 @@ class Client implements \Laravie\Codex\Contracts\Client
      * Prepare request headers.
      *
      * @param  array  $headers
-     *
      * @return array
      */
     protected function prepareRequestHeaders(array $headers = []): array

@@ -2,14 +2,14 @@
 
 namespace Laravie\Codex\Testing;
 
-use Mockery as m;
 use GuzzleHttp\Psr7\Uri;
+use Http\Client\Common\HttpMethodsClient;
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;
-use Psr\Http\Message\StreamInterface;
+use Mockery as m;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Http\Client\Common\HttpMethodsClient;
+use Psr\Http\Message\StreamInterface;
 
 class Faker
 {
@@ -111,7 +111,6 @@ class Faker
      * Set expected URL.
      *
      * @param  string  $endpoint
-     *
      * @return $this
      */
     public function expectEndpointIs(string $endpoint)
@@ -124,10 +123,9 @@ class Faker
     /**
      * Make expected HTTP request.
      *
-     * @param  string $method
+     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
      * @param  \Mockery\Matcher\Type|mixed  $body
-     *
      * @return $this
      */
     public function call(string $method, $headers = [], $body = '')
@@ -158,10 +156,9 @@ class Faker
     /**
      * Make expected HTTP request.
      *
-     * @param  string $method
+     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
      * @param  \Mockery\Matcher\Type|mixed  $body
-     *
      * @return $this
      */
     public function send(string $method, $headers = [], $body = '')
@@ -172,10 +169,9 @@ class Faker
     /**
      * Make expected HTTP JSON request.
      *
-     * @param  string $method
+     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
      * @param  \Mockery\Matcher\Type|array|string  $body
-     *
      * @return $this
      */
     public function sendJson(string $method, $headers = [], $body = '')
@@ -195,9 +191,8 @@ class Faker
     /**
      * Make expected HTTP JSON request.
      *
-     * @param  string $method
+     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
-     *
      * @return $this
      */
     public function stream(string $method, $headers = [])
@@ -215,7 +210,6 @@ class Faker
      * @param  int  $code
      * @param  string  $body
      * @param  array  $headers
-     *
      * @return $this
      */
     public function shouldResponseWith(int $code = 200, string $body = '', array $headers = [])
@@ -237,7 +231,6 @@ class Faker
      * @param  int  $code
      * @param  string  $body
      * @param  array  $headers
-     *
      * @return $this
      */
     public function shouldResponseWithJson(int $code = 200, string $body = '', array $headers = [])
@@ -251,7 +244,6 @@ class Faker
      * Response should have reason phrase as.
      *
      * @param  array  $headers
-     *
      * @return $this
      */
     public function expectResponseHeaders(array $headers)
@@ -296,7 +288,6 @@ class Faker
      * Response should have reason phrase as.
      *
      * @param  string  $reason
-     *
      * @return $this
      */
     public function expectReasonPhraseIs(string $reason)
@@ -312,7 +303,6 @@ class Faker
      * Response should have reason phrase as.
      *
      * @param  string  $contentType
-     *
      * @return $this
      */
     public function expectContentTypeIs(string $contentType)

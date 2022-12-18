@@ -2,8 +2,8 @@
 
 namespace Laravie\Codex\Contracts;
 
-use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
 interface Client
 {
@@ -14,7 +14,6 @@ interface Client
      * @param  \Laravie\Codex\Contracts\Endpoint  $uri
      * @param  array  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
-     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function send(string $method, Endpoint $uri, array $headers = [], $body = []): ResponseInterface;
@@ -26,7 +25,6 @@ interface Client
      * @param  \Laravie\Codex\Contracts\Endpoint  $uri
      * @param  array  $headers
      * @param  \Psr\Http\Message\StreamInterface  $stream
-     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function stream(string $method, Endpoint $uri, array $headers, StreamInterface $stream): ResponseInterface;
