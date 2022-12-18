@@ -158,7 +158,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     public function get(): UriInterface
     {
         $this->withQuery(
-            http_build_query($this->getQuery(), null, '&')
+            http_build_query($this->getQuery(), '', '&')
         );
 
         return $this->uri;

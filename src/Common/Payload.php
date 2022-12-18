@@ -79,6 +79,6 @@ class Payload
      */
     public function toHttpQueries(?string $prefix = null, string $separator = '&'): string
     {
-        return http_build_query($this->content ?? [], $prefix, $separator);
+        return http_build_query($this->content ?? [], (string) $prefix, $separator);
     }
 }
