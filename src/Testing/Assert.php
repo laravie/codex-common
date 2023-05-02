@@ -19,9 +19,6 @@ if (class_exists(Version::class) && (int) Version::series()[0] >= 8) {
          *
          * @param  \ArrayAccess|array  $subset
          * @param  \ArrayAccess|array  $array
-         * @param  bool  $checkForIdentity
-         * @param  string  $msg
-         * @return void
          */
         public static function assertArraySubset($subset, $array, bool $checkForIdentity = false, string $msg = ''): void
         {
@@ -57,9 +54,6 @@ if (class_exists(Version::class) && (int) Version::series()[0] >= 8) {
          *
          * @param  \ArrayAccess|array  $subset
          * @param  \ArrayAccess|array  $array
-         * @param  bool  $checkForIdentity
-         * @param  string  $msg
-         * @return void
          */
         public static function assertArraySubset($subset, $array, bool $checkForIdentity = false, string $msg = ''): void
         {

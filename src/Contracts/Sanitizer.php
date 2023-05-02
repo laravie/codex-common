@@ -15,19 +15,11 @@ interface Sanitizer
 
     /**
      * Sanitize request.
-     *
-     * @param  array  $inputs
-     * @param  array  $group
-     * @return array
      */
     public function from(array $inputs, array $group = []): array;
 
     /**
      * Sanitize response.
-     *
-     * @param  array  $inputs
-     * @param  array  $group
-     * @return array
      */
     public function to(array $inputs, array $group = []): array;
 }

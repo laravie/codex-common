@@ -47,9 +47,7 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Create instance of Uri.
      *
-     * @param  string|null  $url
      * @param  array<int, string>  $paths
-     * @return \Psr\Http\Message\UriInterface
      */
     final protected function createUri(?string $url, array $paths): UriInterface
     {
@@ -68,9 +66,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 
     /**
      * Create from UriInterface.
-     *
-     * @param  \Psr\Http\Message\UriInterface  $uri
-     * @return void
      */
     final protected function createQueryFromUri(UriInterface $uri): void
     {
@@ -79,9 +74,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 
     /**
      * Prepare query string.
-     *
-     * @param  string  $query
-     * @return void
      */
     protected function createQuery(string $query): void
     {
@@ -102,7 +94,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
      * Add query string.
      *
      * @param  string|array<string, string|null>  $key
-     * @param  string|null  $value
      * @return $this
      */
     public function addQuery($key, string $value = null)
@@ -120,8 +111,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 
     /**
      * Get URI.
-     *
-     * @return string|null
      */
     public function getUri(): ?string
     {
@@ -142,8 +131,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 
     /**
      * Get query string(s).
-     *
-     * @return array
      */
     public function getQuery(): array
     {
@@ -152,8 +139,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
 
     /**
      * Get URI instance.
-     *
-     * @return \Psr\Http\Message\UriInterface
      */
     public function get(): UriInterface
     {
@@ -167,8 +152,6 @@ class Endpoint implements \Laravie\Codex\Contracts\Endpoint
     /**
      * Call method under \Psr\Http\Message\UriInterface.
      *
-     * @param  string  $method
-     * @param  array  $parameters
      * @return mixed
      */
     public function __call(string $method, array $parameters)

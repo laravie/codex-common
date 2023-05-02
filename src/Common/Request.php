@@ -19,10 +19,8 @@ abstract class Request implements \Laravie\Codex\Contracts\Request
     /**
      * Create Endpoint instance.
      *
-     * @param  string  $uri
      * @param  array<int, string>|string  $path
      * @param  array<string, string>  $query
-     * @return \Laravie\Codex\Contracts\Endpoint
      */
     public static function to(string $uri, $path = [], array $query = []): EndpointContract
     {
@@ -32,7 +30,6 @@ abstract class Request implements \Laravie\Codex\Contracts\Request
     /**
      * Set Codex Client.
      *
-     * @param  \Laravie\Codex\Contracts\Client  $client
      * @return $this
      */
     final public function setClient(ClientContract $client): self
@@ -44,9 +41,6 @@ abstract class Request implements \Laravie\Codex\Contracts\Request
 
     /**
      * Resolve the responder class.
-     *
-     * @param  \Psr\Http\Message\ResponseInterface  $message
-     * @return \Laravie\Codex\Contracts\Response
      */
     abstract protected function responseWith(ResponseInterface $message): ResponseContract;
 }

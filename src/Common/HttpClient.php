@@ -26,11 +26,8 @@ trait HttpClient
     /**
      * Send the HTTP request.
      *
-     * @param  string  $method
-     * @param  \Laravie\Codex\Contracts\Endpoint  $uri
      * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
-     * @return \Psr\Http\Message\ResponseInterface
      */
     public function send(string $method, EndpointContract $uri, array $headers = [], $body = []): ResponseInterface
     {
@@ -49,11 +46,7 @@ trait HttpClient
     /**
      * Stream (multipart) the HTTP request.
      *
-     * @param  string  $method
-     * @param  \Laravie\Codex\Contracts\Endpoint  $uri
      * @param  array<string, mixed>  $headers
-     * @param  \Psr\Http\Message\StreamInterface  $stream
-     * @return \Psr\Http\Message\ResponseInterface
      */
     public function stream(string $method, EndpointContract $uri, array $headers, StreamInterface $stream): ResponseInterface
     {
@@ -67,11 +60,8 @@ trait HttpClient
     /**
      * Stream (multipart) the HTTP request.
      *
-     * @param  string  $method
-     * @param  \Psr\Http\Message\UriInterface  $uri
      * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
-     * @return \Psr\Http\Message\ResponseInterface
      */
     protected function requestWith(string $method, UriInterface $uri, array $headers, $body): ResponseInterface
     {
@@ -91,7 +81,6 @@ trait HttpClient
      *
      * @param  array<string, mixed>  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Common\Payload|array|null  $body
-     * @return array
      */
     protected function prepareRequestPayloads(array $headers = [], $body = []): array
     {

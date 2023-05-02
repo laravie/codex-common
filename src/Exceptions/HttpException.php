@@ -23,8 +23,6 @@ class HttpException extends RuntimeException implements HttpClientException
      *
      * @param  \Psr\Http\Message\ResponseInterface|\Laravie\Codex\Contracts\Response  $response
      * @param  string  $message
-     * @param  \Exception|null  $previous
-     * @param  int  $code
      */
     public function __construct(
         $response,
@@ -43,8 +41,6 @@ class HttpException extends RuntimeException implements HttpClientException
 
     /**
      * Get status code.
-     *
-     * @return int
      */
     public function getStatusCode(): int
     {

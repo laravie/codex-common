@@ -65,9 +65,6 @@ class HttpClientTest extends TestCase
 
     /**
      * Prepare request headers.
-     *
-     * @param  array  $headers
-     * @return array
      */
     protected function prepareRequestHeaders(array $headers = []): array
     {

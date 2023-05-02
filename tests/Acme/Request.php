@@ -12,11 +12,8 @@ class Request extends \Laravie\Codex\Common\Request
     /**
      * Send Webhook request.
      *
-     * @param  string  $method
      * @param  \Laravie\Codex\Contracts\Endpoint|string  $url
-     * @param  array  $headers
      * @param  \Psr\Http\Message\StreamInterface|\Laravie\Codex\Payload|array|null  $body
-     * @return \Laravie\Codex\Contracts\Response
      */
     public function send(string $method, $url, array $headers = [], $body = []): ResponseContract
     {
@@ -27,9 +24,6 @@ class Request extends \Laravie\Codex\Common\Request
 
     /**
      * Resolve the responder class.
-     *
-     * @param  \Psr\Http\Message\ResponseInterface  $message
-     * @return \Laravie\Codex\Contracts\Response
      */
     protected function responseWith(ResponseInterface $message): ResponseContract
     {

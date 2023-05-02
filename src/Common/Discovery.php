@@ -17,8 +17,6 @@ class Discovery
 
     /**
      * Make HTTP client through Discovery.
-     *
-     * @return \Http\Client\Common\HttpMethodsClient
      */
     public static function client(): HttpMethodsClient
     {
@@ -28,8 +26,6 @@ class Discovery
 
     /**
      * Make a HTTP Client.
-     *
-     * @return \Http\Client\Common\HttpMethodsClient
      */
     public static function make(): HttpMethodsClient
     {
@@ -41,8 +37,6 @@ class Discovery
 
     /**
      * Make Fresh HTTP client through Discovery.
-     *
-     * @return \Http\Client\Common\HttpMethodsClient
      */
     public static function refreshClient(): HttpMethodsClient
     {
@@ -53,9 +47,6 @@ class Discovery
 
     /**
      * Override existing HTTP client.
-     *
-     * @param  \Http\Client\Common\HttpMethodsClient  $client
-     * @return \Http\Client\Common\HttpMethodsClient
      */
     public static function override(HttpMethodsClient $client): HttpMethodsClient
     {
@@ -66,8 +57,6 @@ class Discovery
 
     /**
      * Flush any existing HTTP Client.
-     *
-     * @return void
      */
     public static function flush(): void
     {

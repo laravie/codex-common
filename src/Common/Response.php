@@ -24,8 +24,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      * Construct a new response.
-     *
-     * @param  \Psr\Http\Message\ResponseInterface  $message
      */
     public function __construct(ResponseInterface $message)
     {
@@ -47,7 +45,6 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Validate response with custom callable.
      *
-     * @param  callable  $callback
      * @return $this
      */
     final public function validateWith(callable $callback): self
@@ -60,7 +57,6 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Validate response with custom callable.
      *
-     * @param  callable  $callback
      * @return $this
      */
     final public function then(callable $callback): self
@@ -72,8 +68,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      * Convert response body to array.
-     *
-     * @return array
      */
     public function toArray(): array
     {
@@ -115,8 +109,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      * Get status code.
-     *
-     * @return int
      */
     public function getStatusCode(): int
     {
@@ -125,8 +117,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      *  Gets the response reason phrase associated with the status code.
-     *
-     * @return string
      */
     public function getReasonPhrase(): string
     {
@@ -135,8 +125,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      * Check if response is unauthorized.
-     *
-     * @return bool
      */
     public function isSuccessful(): bool
     {
@@ -145,8 +133,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      * Check if response is missing.
-     *
-     * @return bool
      */
     public function isNotFound(): bool
     {
@@ -155,8 +141,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      * Check if response is unauthorized.
-     *
-     * @return bool
      */
     public function isUnauthorized(): bool
     {
@@ -166,7 +150,6 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Validate for unauthorized request.
      *
-     * @return void
      *
      * @throws \Laravie\Codex\Exceptions\UnauthorizedException
      */
@@ -180,8 +163,6 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Validate for unauthorized request.
      *
-     * @param  string|null  $message
-     * @return void
      *
      * @throws \Laravie\Codex\Exceptions\HttpException
      */
@@ -196,9 +177,6 @@ class Response implements \Laravie\Codex\Contracts\Response
 
     /**
      * Abort if request data is not found.
-     *
-     * @param  string|null  $message
-     * @return void
      */
     public function abortIfRequestNotFound(?string $message = null): void
     {
@@ -210,8 +188,6 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Call method under \Psr\Http\Message\ResponseInterface.
      *
-     * @param  string  $method
-     * @param  array  $parameters
      * @return mixed
      */
     public function __call(string $method, array $parameters)
@@ -226,7 +202,6 @@ class Response implements \Laravie\Codex\Contracts\Response
     /**
      * Get hidden property.
      *
-     * @param  string  $key
      * @return mixed
      */
     public function __get(string $key)

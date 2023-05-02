@@ -111,7 +111,6 @@ class Faker
     /**
      * Set expected URL.
      *
-     * @param  string  $endpoint
      * @return $this
      */
     public function expectEndpointIs(string $endpoint)
@@ -124,7 +123,6 @@ class Faker
     /**
      * Make expected HTTP request.
      *
-     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
      * @param  \Mockery\Matcher\Type|mixed  $body
      * @return $this
@@ -157,7 +155,6 @@ class Faker
     /**
      * Make expected HTTP request.
      *
-     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
      * @param  \Mockery\Matcher\Type|mixed  $body
      * @return $this
@@ -170,7 +167,6 @@ class Faker
     /**
      * Make expected HTTP JSON request.
      *
-     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
      * @param  \Mockery\Matcher\Type|array|string  $body
      * @return $this
@@ -192,7 +188,6 @@ class Faker
     /**
      * Make expected HTTP JSON request.
      *
-     * @param  string  $method
      * @param  \Mockery\Matcher\Type|array  $headers
      * @return $this
      */
@@ -208,9 +203,6 @@ class Faker
     /**
      * Request should response with.
      *
-     * @param  int  $code
-     * @param  string  $body
-     * @param  array  $headers
      * @return $this
      */
     public function shouldResponseWith(int $code = 200, string $body = '', array $headers = [])
@@ -229,9 +221,6 @@ class Faker
     /**
      * Request should response with.
      *
-     * @param  int  $code
-     * @param  string  $body
-     * @param  array  $headers
      * @return $this
      */
     public function shouldResponseWithJson(int $code = 200, string $body = '', array $headers = [])
@@ -244,7 +233,6 @@ class Faker
     /**
      * Response should have reason phrase as.
      *
-     * @param  array  $headers
      * @return $this
      */
     public function expectResponseHeaders(array $headers)
@@ -288,7 +276,6 @@ class Faker
     /**
      * Response should have reason phrase as.
      *
-     * @param  string  $reason
      * @return $this
      */
     public function expectReasonPhraseIs(string $reason)
@@ -303,7 +290,6 @@ class Faker
     /**
      * Response should have reason phrase as.
      *
-     * @param  string  $contentType
      * @return $this
      */
     public function expectContentTypeIs(string $contentType)

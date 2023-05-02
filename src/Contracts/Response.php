@@ -16,8 +16,6 @@ interface Response
 
     /**
      * Convert response body to array.
-     *
-     * @return array
      */
     public function toArray(): array;
 
@@ -37,8 +35,6 @@ interface Response
 
     /**
      * Get status code.
-     *
-     * @return int
      */
     public function getStatusCode(): int;
 }
