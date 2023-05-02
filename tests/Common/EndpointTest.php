@@ -94,7 +94,7 @@ class EndpointTest extends TestCase
     public function it_can_build_basic_endpoint_from_uri_instance()
     {
         $endpoint = (new Endpoint('https://laravel.com', 'docs'))
-                        ->addQuery(['search' => 'controller', 'page' => 3]);
+            ->addQuery(['search' => 'controller', 'page' => 3]);
 
         $this->assertSame('https', $endpoint->getScheme());
         $this->assertSame('laravel.com', $endpoint->getHost());

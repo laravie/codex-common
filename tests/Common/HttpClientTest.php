@@ -30,9 +30,9 @@ class HttpClientTest extends TestCase
         $payloads = ['search' => 'codex'];
 
         $faker = Faker::create()
-                        ->call('GET', $headers, '')
-                        ->expectEndpointIs('https://laravel.com/docs/5.5?search=codex')
-                        ->shouldResponseWith(200, '{"status":"success"}');
+            ->call('GET', $headers, '')
+            ->expectEndpointIs('https://laravel.com/docs/5.5?search=codex')
+            ->shouldResponseWith(200, '{"status":"success"}');
 
         $this->http = $faker->http();
 
@@ -51,9 +51,9 @@ class HttpClientTest extends TestCase
         $stream = m::mock(StreamInterface::class);
 
         $faker = Faker::create()
-                        ->call('POST', $headers, $stream)
-                        ->expectEndpointIs('https://laravel.com/codex')
-                        ->shouldResponseWith(200, '{"status":"success"}');
+            ->call('POST', $headers, $stream)
+            ->expectEndpointIs('https://laravel.com/codex')
+            ->shouldResponseWith(200, '{"status":"success"}');
 
         $this->http = $faker->http();
 

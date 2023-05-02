@@ -44,9 +44,9 @@ class RequestTest extends TestCase
     public function it_can_send_request()
     {
         $faker = Faker::create()
-                    ->send('POST', [], 'foo=bar')
-                    ->expectEndpointIs('https://acme.laravie/webhook')
-                    ->shouldResponseWith(200, 'OK');
+            ->send('POST', [], 'foo=bar')
+            ->expectEndpointIs('https://acme.laravie/webhook')
+            ->shouldResponseWith(200, 'OK');
 
         $request = new Request();
         $request->setClient(new Client($faker->http()));
