@@ -2,14 +2,15 @@
 
 namespace Laravie\Codex\Testing;
 
-use Mockery as m;
 use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Psr7\Utils;
+use Http\Client\Common\HttpMethodsClient;
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;
-use Psr\Http\Message\StreamInterface;
+use Mockery as m;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Http\Client\Common\HttpMethodsClient;
+use Psr\Http\Message\StreamInterface;
 
 class Faker
 {
@@ -224,7 +225,7 @@ class Faker
         $this->expectedResponseBody = $body;
 
         $this->message->shouldReceive('getStatusCode')->andReturn($code)
-            ->shouldReceive('getBody')->andReturn($body);
+            ->shouldReceive('getBody')->andReturn(Utils::streamFor($body));
 
         $this->expectResponseHeaders($headers);
 
