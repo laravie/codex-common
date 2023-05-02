@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: '0 0 1 * *'
 
 jobs:
   tests:
@@ -43,6 +43,9 @@ jobs:
         with:
           dependency-versions: "${{ matrix.dependencies }}"
           composer-options: "--prefer-dist --no-cache"
+
+      - name: Installed dependencies
+        run: composer show -D
 
       - name: Execute tests
         run: vendor/bin/phpunit
