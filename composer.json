@@ -32,8 +32,8 @@
     },
     "require-dev": {
         "guzzlehttp/guzzle": "^7.0.1",
-        "mockery/mockery": "^1.4.4",
         "laravel/pint": "^1.1",
+        "mockery/mockery": "^1.4.4",
         "php-http/guzzle7-adapter": "^1.0",
         "phpstan/phpstan": "^1.10.5",
         "phpunit/phpunit": "^9.6"
