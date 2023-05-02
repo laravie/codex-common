@@ -2,11 +2,12 @@
 
 namespace Laravie\Codex\Tests\Common;
 
+use GuzzleHttp\Psr7\Utils;
+use Laravie\Codex\Common\Response;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Laravie\Codex\Common\Response;
-use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
 class ResponseTest extends TestCase
 {
@@ -38,7 +39,7 @@ class ResponseTest extends TestCase
 
         $api = m::mock(ResponseInterface::class);
 
-        $api->shouldReceive('getBody')->twice()->andReturn($json);
+        $api->shouldReceive('getBody')->twice()->andReturn(Utils::streamFor($json));
 
         $stub = new Response($api);
 
@@ -51,7 +52,7 @@ class ResponseTest extends TestCase
     {
         $api = m::mock(ResponseInterface::class);
 
-        $api->shouldReceive('getBody')->twice()->andReturn('null');
+        $api->shouldReceive('getBody')->twice()->andReturn(Utils::streamFor('null'));
 
         $stub = new Response($api);
 
