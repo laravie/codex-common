@@ -8,6 +8,14 @@ Released: 2023-07-10
 
 ### Changes
 
+* Bump minimum version for `php-http/message-factory`.
+
+## 2.1.0
+
+Released: 2023-07-10
+
+### Changes
+
 * Fixes PHP-HTTP integrations.
 
 ## 2.0.0
