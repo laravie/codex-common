@@ -28,13 +28,15 @@
         "http-interop/http-factory-guzzle": "^1.0",
         "php-http/client-common": "^2.0",
         "php-http/client-implementation": "^1.0",
-        "php-http/discovery": "^1.13"
+        "php-http/discovery": "^1.13",
+        "php-http/guzzle7-adapter": "1.x-dev",
+        "php-http/message": "^1.0",
+        "php-http/message-factory": "^1.0"
     },
     "require-dev": {
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/pint": "^1.1",
         "mockery/mockery": "^1.4.4",
-        "php-http/guzzle7-adapter": "^1.0",
         "phpstan/phpstan": "^1.10.5",
         "phpunit/phpunit": "^9.6"
     },
