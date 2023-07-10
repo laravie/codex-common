@@ -24,12 +24,12 @@
     },
     "require": {
         "php": ">=8.0.0 <8.3.0",
-        "guzzlehttp/psr7": "^1.6 || ^2.0",
+        "guzzlehttp/psr7": "^2.5",
         "http-interop/http-factory-guzzle": "^1.0",
         "php-http/client-common": "^2.0",
         "php-http/client-implementation": "^1.0",
         "php-http/discovery": "^1.13",
-        "php-http/guzzle7-adapter": "1.x-dev",
+        "php-http/guzzle7-adapter": "^1.0",
         "php-http/message": "^1.0",
         "php-http/message-factory": "^1.0"
     },
