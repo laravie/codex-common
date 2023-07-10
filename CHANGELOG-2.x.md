@@ -2,7 +2,7 @@
 
 This changelog references the relevant changes (bug and security fixes) done to `laravie/codex-common`.
 
-## 2.1.0
+## 2.1.1
 
 Released: 2023-07-10
 
